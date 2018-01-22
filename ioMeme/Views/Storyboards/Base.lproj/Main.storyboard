@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina5_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Dot-Zw-Zra">
+                                <rect key="frame" x="0.0" y="610" width="414" height="116"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="75" translatesAutoresizingMaskIntoConstraints="NO" id="sVx-Hg-TaG">
+                                        <rect key="frame" x="96.666666666666686" y="0.0" width="221" height="73"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eOQ-iG-Ibs">
+                                                <rect key="frame" x="0.0" y="0.0" width="73" height="73"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="73" id="MP7-gm-LD4"/>
+                                                    <constraint firstAttribute="height" constant="73" id="jv4-jL-zkb"/>
+                                                </constraints>
+                                                <state key="normal" image="button_camera"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j1m-Oz-Pye">
+                                                <rect key="frame" x="148" y="0.0" width="73" height="73"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="73" id="8Fo-M2-4mH"/>
+                                                    <constraint firstAttribute="height" constant="73" id="jAF-eB-nSx"/>
+                                                </constraints>
+                                                <state key="normal" image="button_album"/>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b7p-pJ-mk4">
+                                        <rect key="frame" x="185.66666666666666" y="73" width="43" height="43"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="43" id="95v-j0-42z"/>
+                                            <constraint firstAttribute="width" constant="43" id="vjq-sW-D7R"/>
+                                        </constraints>
+                                        <state key="normal" image="button_share"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yKI-Ry-SGE">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_app" translatesAutoresizingMaskIntoConstraints="NO" id="OHp-kZ-Ze5">
+                                        <rect key="frame" x="157.66666666666666" y="16.666666666666668" width="98.999999999999972" height="28.000000000000004"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="99" id="2f0-T6-jb6"/>
+                                            <constraint firstAttribute="height" constant="28" id="hv7-Kc-txG"/>
+                                            <constraint firstAttribute="width" secondItem="OHp-kZ-Ze5" secondAttribute="height" multiplier="99:28" id="vYA-An-zVQ"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="OHp-kZ-Ze5" firstAttribute="centerY" secondItem="yKI-Ry-SGE" secondAttribute="centerY" id="NMT-7e-bX5"/>
+                                    <constraint firstItem="OHp-kZ-Ze5" firstAttribute="centerX" secondItem="yKI-Ry-SGE" secondAttribute="centerX" id="o8F-lv-o8s"/>
+                                    <constraint firstAttribute="height" constant="60" id="vLR-hI-7YH"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.4823529411764706" green="0.45098039215686275" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yKI-Ry-SGE" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="2DM-7d-wJk"/>
+                            <constraint firstItem="Dot-Zw-Zra" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="NHJ-oT-6Ku"/>
+                            <constraint firstAttribute="trailing" secondItem="Dot-Zw-Zra" secondAttribute="trailing" id="QjF-oL-BD1"/>
+                            <constraint firstItem="yKI-Ry-SGE" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nxQ-D5-7LP"/>
+                            <constraint firstItem="yKI-Ry-SGE" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="pic-aC-qeZ"/>
+                            <constraint firstAttribute="bottom" secondItem="Dot-Zw-Zra" secondAttribute="bottom" constant="10" id="wqh-ig-Hpr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="32.799999999999997" y="33.733133433283363"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="button_album" width="292" height="292"/>
+        <image name="button_camera" width="292" height="292"/>
+        <image name="button_share" width="172" height="172"/>
+        <image name="logo_app" width="495" height="140"/>
+    </resources>
+</document>
