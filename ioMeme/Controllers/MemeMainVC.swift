@@ -10,10 +10,21 @@ import UIKit
 
 class MemeMainVC: UIViewController {
 
+    @IBOutlet weak var bottomText: UITextField!
+    @IBOutlet weak var topText: UITextField!
+    
+    let textFieldDelegate = TextFieldDelegate()
+    
     @IBOutlet weak var cameraBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.dismissKeyboard (_:)))
+        self.view.addGestureRecognizer(tapGesture)
+        
+        bottomText.delegate = textFieldDelegate
+        topText.delegate = textFieldDelegate
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,6 +37,12 @@ class MemeMainVC: UIViewController {
         super.viewWillDisappear(true)
         unsubscribeFromKeyboardNotifications()
     }
+    
+    @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
+        bottomText.resignFirstResponder()
+        topText.resignFirstResponder()
+    }
+    
 }
 
 extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
