@@ -10,12 +10,13 @@ import UIKit
 
 class MemeMainVC: UIViewController {
 
+    @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var topText: UITextField!
     
     let textFieldDelegate = TextFieldDelegate()
     
-    @IBOutlet weak var cameraBtn: UIButton!
+    @IBOutlet weak var cameraBtn: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +31,7 @@ class MemeMainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         subscribeToKeyboardNotifications()
-        cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+     //   cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
         
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -42,6 +43,14 @@ class MemeMainVC: UIViewController {
         bottomText.resignFirstResponder()
         topText.resignFirstResponder()
     }
+    
+    @IBAction func shareMeme(_ sender: Any) {
+    }
+    
+    @IBAction func dismissViewPress(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     
 }
 
@@ -58,6 +67,17 @@ extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         imagePicker.sourceType = .photoLibrary
         present(imagePicker, animated: true, completion: nil)
     }
-    @IBAction func shareMeme(_ sender: Any) {
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
+            imagePickerView.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+
 }
