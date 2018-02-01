@@ -55,6 +55,7 @@ class MemeMainVC: UIViewController {
 }
 
 extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+ 
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
@@ -78,6 +79,5 @@ extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDel
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
 
 }
