@@ -44,14 +44,19 @@ class MemeMainVC: UIViewController {
     }
     
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
-        bottomText.resignFirstResponder()
-        topText.resignFirstResponder()
+        view.endEditing(true)
     }
     
     @IBAction func shareMeme(_ sender: Any) {
         self.save()
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
+        controller.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
+            if completed {
+                self.save()
+            }
+        }
         self.present(controller, animated: true, completion: nil)
+        
     }
     @IBAction func dismissViewPress(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
@@ -97,27 +102,25 @@ class MemeMainVC: UIViewController {
     }
     
     func checkShareButtonAvaliable(){
-        if (imagePickerView.image != nil) {
-            shareBtn.isEnabled = true
-        } else {
-             shareBtn.isEnabled = false
-        }
+      shareBtn.isEnabled = (imagePickerView != nil)
     }
 }
 
 extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        imagePicker.sourceType = .camera
-        present(imagePicker, animated: true, completion: nil)
+        presentImagePickerWith(sourceType: .camera)
     }
     @IBAction func pickAnImageFromAlbum(_ sender: Any) {
+        presentImagePickerWith(sourceType: .photoLibrary)
+    }
+    
+    func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType){
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        imagePicker.sourceType = .photoLibrary
+        imagePicker.sourceType = sourceType
         present(imagePicker, animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
             imagePickerView.image = image

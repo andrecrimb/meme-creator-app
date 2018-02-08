@@ -23,17 +23,25 @@ class fontMeme: UITextField{
     }
     func setupView(){
     
-        let shadow = NSShadow()
-        shadow.shadowBlurRadius = 2
-        shadow.shadowOffset = CGSize(width: 2, height: 2)
-        
+//        let shadow = NSShadow()
+//        shadow.shadowBlurRadius = 2
+//        shadow.shadowOffset = CGSize(width: 2, height: 2)
+//
+//
+//        let memeTextAttributes:[String:Any] = [
+//            NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
+//            NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+//            NSAttributedStringKey.shadow.rawValue: shadow
+//        ]
         
         let memeTextAttributes:[String:Any] = [
             NSAttributedStringKey.foregroundColor.rawValue: UIColor.white,
             NSAttributedStringKey.font.rawValue: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-            NSAttributedStringKey.shadow.rawValue: shadow
+            NSAttributedStringKey.strokeColor.rawValue: UIColor.black,
+            NSAttributedStringKey.strokeWidth.rawValue: -3.4
         ]
-    
+        
+        
         self.defaultTextAttributes = memeTextAttributes
         self.textAlignment = .center
         self.textColor = UIColor.white
