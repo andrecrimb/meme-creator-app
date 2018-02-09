@@ -82,7 +82,6 @@ class MemeMainVC: UIViewController {
         let imageSize = self.imagePickerView.frame.size
       
         if let imageRect = self.imagePickerView.superview?.convert(self.imagePickerView.frame, to: nil){
-            
             UIGraphicsBeginImageContextWithOptions(imageSize, false, 0)
             
             let memeRect = CGRect(x: imageRect.origin.x, y: -imageRect.origin.y, width: view.bounds.size.width, height: view.bounds.size.height)
