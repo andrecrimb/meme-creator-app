@@ -98,6 +98,9 @@ class MemeMainVC: UIViewController {
     func save(){
         let memedImage: UIImage = generateMemedImage()
         self.meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
+        let object = UIApplication.shared.delegate
+        let appDelegate = object as! AppDelegate
+        appDelegate.memes.append(self.meme)
     }
     
     func checkShareButtonAvaliable(){
