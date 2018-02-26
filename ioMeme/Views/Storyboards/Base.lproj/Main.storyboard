@@ -39,43 +39,59 @@
         <!--Sent Memes-->
         <scene sceneID="2px-Re-hp4">
             <objects>
-                <tableViewController id="bSe-fg-KPa" sceneMemberID="viewController">
+                <tableViewController id="bSe-fg-KPa" customClass="SentMemesTVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P0J-u3-p5L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" rowHeight="114" id="U7Q-m3-Aki">
-                                <rect key="frame" x="0.0" y="28" width="375" height="114"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeTableCell" rowHeight="120" id="U7Q-m3-Aki">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U7Q-m3-Aki" id="qI1-A7-dYn">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="113.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Luk-WD-Q8e">
-                                            <rect key="frame" x="16" y="0.0" width="325" height="113.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="325" height="119.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3">
-                                                    <rect key="frame" x="0.0" y="9.5" width="95" height="95"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-v3-cHV" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="12.5" width="95" height="95"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="Rounded" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="uRM-1H-ZL3" secondAttribute="height" multiplier="1:1" id="3F1-xg-Mbc"/>
-                                                        <constraint firstAttribute="width" constant="95" id="Imn-Uo-s9g"/>
-                                                        <constraint firstAttribute="height" constant="95" id="dnw-xZ-Rez"/>
+                                                        <constraint firstAttribute="width" constant="95" id="56k-kX-p99"/>
+                                                        <constraint firstItem="uRM-1H-ZL3" firstAttribute="leading" secondItem="MI0-v3-cHV" secondAttribute="leading" id="8nY-MA-tk4"/>
+                                                        <constraint firstAttribute="height" constant="95" id="NBx-uw-FqX"/>
+                                                        <constraint firstItem="uRM-1H-ZL3" firstAttribute="top" secondItem="MI0-v3-cHV" secondAttribute="top" id="jLd-Aa-sug"/>
+                                                        <constraint firstAttribute="bottom" secondItem="uRM-1H-ZL3" secondAttribute="bottom" id="p6t-D4-M0r"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uRM-1H-ZL3" secondAttribute="trailing" id="rcJ-oB-AUq"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="ShadowView" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
-                                                </imageView>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Xvl-WM-x24">
-                                                    <rect key="frame" x="111" y="28.5" width="214" height="57"/>
+                                                    <rect key="frame" x="111" y="31.5" width="214" height="57"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD">
                                                             <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC">
                                                             <rect key="frame" x="0.0" y="36.5" width="214" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
@@ -114,25 +130,61 @@
         <!--Sent Memes-->
         <scene sceneID="gO1-nc-g99">
             <objects>
-                <collectionViewController id="ho0-Jl-pYs" sceneMemberID="viewController">
+                <collectionViewController id="ho0-Jl-pYs" customClass="SentMemesCVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4Re-vb-hJr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gic-V4-wyt">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9ig-W8-WMF">
+                            <size key="itemSize" width="105" height="105"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VYS-oD-Zpu">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="VYS-oD-Zpu">
+                                <rect key="frame" x="16" y="16" width="105" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpF-23-VmS" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="57F-UX-CR4" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="Rounded" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="57F-UX-CR4" firstAttribute="leading" secondItem="MpF-23-VmS" secondAttribute="leading" id="2IT-3c-yP0"/>
+                                                <constraint firstItem="57F-UX-CR4" firstAttribute="top" secondItem="MpF-23-VmS" secondAttribute="top" id="Tn5-7p-fNJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="57F-UX-CR4" secondAttribute="bottom" id="pZ9-aQ-tup"/>
+                                                <constraint firstAttribute="trailing" secondItem="57F-UX-CR4" secondAttribute="trailing" id="rvg-NM-HVt"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ShadowView" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="MpF-23-VmS" firstAttribute="leading" secondItem="VYS-oD-Zpu" secondAttribute="leading" id="HHY-oX-V3v"/>
+                                    <constraint firstAttribute="trailing" secondItem="MpF-23-VmS" secondAttribute="trailing" id="I2P-rd-WKw"/>
+                                    <constraint firstAttribute="bottom" secondItem="MpF-23-VmS" secondAttribute="bottom" id="Tbg-t6-KRi"/>
+                                    <constraint firstItem="MpF-23-VmS" firstAttribute="top" secondItem="VYS-oD-Zpu" secondAttribute="top" id="u1U-he-qVR"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="TCh-Do-cRs" kind="presentation" id="Sq7-GY-9CL"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -148,7 +200,150 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4E-eW-SrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="-699"/>
+            <point key="canvasLocation" x="520.79999999999995" y="-699.40029985007504"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AME-BX-MtJ">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="TCh-Do-cRs" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eOF-xk-zwS" customClass="BlurView" customModule="ioMeme" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="maB-e8-LbU">
+                                <rect key="frame" x="10" y="26" width="349" height="45"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0L-LL-lWx">
+                                        <rect key="frame" x="304" y="0.0" width="45" height="45"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="45" id="VBe-nm-U2X"/>
+                                            <constraint firstAttribute="height" constant="45" id="qL6-Um-c17"/>
+                                        </constraints>
+                                        <state key="normal" image="close_btn"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-xv-1mF">
+                                <rect key="frame" x="0.0" y="81" width="375" height="576"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="496"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdu-Xl-CZd">
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="496"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-6V-RhO">
+                                        <rect key="frame" x="69.5" y="506" width="236" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1M0-g0-dGw" customClass="BlurView" customModule="ioMeme" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="236" height="70"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-Nu-ofZ">
+                                                        <rect key="frame" x="35.5" y="5.5" width="165" height="59"/>
+                                                        <subviews>
+                                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ep-cA-b18">
+                                                                <rect key="frame" x="0.0" y="11.5" width="37" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="37" id="b9H-mL-mi0"/>
+                                                                </constraints>
+                                                                <state key="normal" image="button_share copy"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttS-zg-PEx">
+                                                                <rect key="frame" x="53" y="0.0" width="59" height="59"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="59" id="6in-8k-NTS"/>
+                                                                </constraints>
+                                                                <state key="normal" image="button_camera"/>
+                                                            </button>
+                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-Oy-Gft">
+                                                                <rect key="frame" x="128" y="11.5" width="37" height="36"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="37" id="UpO-dR-8ho"/>
+                                                                </constraints>
+                                                                <state key="normal" image="button_share copy"/>
+                                                            </button>
+                                                        </subviews>
+                                                        <variation key="heightClass=compact" axis="vertical"/>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="236" id="7wL-yb-di6">
+                                                        <variation key="heightClass=compact" constant="70"/>
+                                                    </constraint>
+                                                    <constraint firstItem="Sog-Nu-ofZ" firstAttribute="centerX" secondItem="1M0-g0-dGw" secondAttribute="centerX" id="Km0-N3-Rdj"/>
+                                                    <constraint firstAttribute="width" secondItem="1M0-g0-dGw" secondAttribute="height" multiplier="118:35" id="Ueu-ju-rPh"/>
+                                                    <constraint firstAttribute="height" constant="70" id="mQq-pW-vsO">
+                                                        <variation key="heightClass=compact" constant="236"/>
+                                                    </constraint>
+                                                    <constraint firstItem="Sog-Nu-ofZ" firstAttribute="centerY" secondItem="1M0-g0-dGw" secondAttribute="centerY" id="qqu-OR-9qM"/>
+                                                </constraints>
+                                                <userDefinedRuntimeAttributes>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Blur" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="Corner">
+                                                        <real key="value" value="100"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="blur" value="YES"/>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                        <real key="value" value="35"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="blurStyle">
+                                                        <integer key="value" value="1"/>
+                                                    </userDefinedRuntimeAttribute>
+                                                </userDefinedRuntimeAttributes>
+                                                <variation key="heightClass=compact">
+                                                    <mask key="constraints">
+                                                        <exclude reference="Ueu-ju-rPh"/>
+                                                    </mask>
+                                                </variation>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="AJf-g7-F5V" firstAttribute="width" secondItem="IZs-xv-1mF" secondAttribute="width" id="haO-4M-QVN"/>
+                                </constraints>
+                                <variation key="heightClass=compact" axis="horizontal">
+                                    <mask key="constraints">
+                                        <exclude reference="haO-4M-QVN"/>
+                                    </mask>
+                                </variation>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="h5y-Rj-Hfp" firstAttribute="trailing" secondItem="maB-e8-LbU" secondAttribute="trailing" constant="16" id="Jnu-1v-sEN"/>
+                            <constraint firstItem="IZs-xv-1mF" firstAttribute="top" secondItem="maB-e8-LbU" secondAttribute="bottom" constant="10" id="PCx-tA-m35"/>
+                            <constraint firstItem="maB-e8-LbU" firstAttribute="top" secondItem="h5y-Rj-Hfp" secondAttribute="top" constant="6" id="Qt6-In-ZSx"/>
+                            <constraint firstItem="maB-e8-LbU" firstAttribute="leading" secondItem="h5y-Rj-Hfp" secondAttribute="leading" constant="10" id="WLL-UB-Chs"/>
+                            <constraint firstItem="h5y-Rj-Hfp" firstAttribute="trailing" secondItem="IZs-xv-1mF" secondAttribute="trailing" id="hcA-Rh-3t0">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="IZs-xv-1mF" firstAttribute="leading" secondItem="eOF-xk-zwS" secondAttribute="leading" id="mzf-St-ZOR">
+                                <variation key="heightClass=compact" constant="10"/>
+                            </constraint>
+                            <constraint firstItem="h5y-Rj-Hfp" firstAttribute="bottom" secondItem="IZs-xv-1mF" secondAttribute="bottom" constant="10" id="sQl-31-ngm"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h5y-Rj-Hfp"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Blur" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="BlurStyle">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="blur" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="blurStyle">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZA8-3V-FDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512.8" y="-1024.1379310344828"/>
         </scene>
         <!--Meme MainVC-->
         <scene sceneID="tne-QT-ifu">
@@ -284,7 +479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="-104.7976011994003"/>
+            <point key="canvasLocation" x="2012" y="111"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lta-tb-eCN">
@@ -307,7 +502,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-6j-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="-894.60269865067471"/>
+            <point key="canvasLocation" x="2807" y="110"/>
         </scene>
         <!--Table-->
         <scene sceneID="fuv-iW-zH8">
@@ -369,6 +564,9 @@
     </scenes>
     <resources>
         <image name="arrow" width="736" height="936"/>
+        <image name="button_camera" width="59" height="59"/>
+        <image name="button_share copy" width="36" height="36"/>
+        <image name="close_btn" width="51" height="51"/>
         <image name="grid_icon" width="27" height="26"/>
         <image name="table_icon" width="27" height="26"/>
     </resources>
