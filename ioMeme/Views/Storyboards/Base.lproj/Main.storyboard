@@ -202,10 +202,10 @@
             </objects>
             <point key="canvasLocation" x="520.79999999999995" y="-699.40029985007504"/>
         </scene>
-        <!--View Controller-->
+        <!--Meme MainVC-->
         <scene sceneID="AME-BX-MtJ">
             <objects>
-                <viewController modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="TCh-Do-cRs" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="TCh-Do-cRs" customClass="MemeMainVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eOF-xk-zwS" customClass="BlurView" customModule="ioMeme" customModuleProvider="target">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,13 +226,58 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-xv-1mF">
                                 <rect key="frame" x="0.0" y="81" width="375" height="576"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="496"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdu-Xl-CZd">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I04-Et-wSS">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="496"/>
-                                            </imageView>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdu-Xl-CZd">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="496"/>
+                                                    </imageView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="8b5-Se-ecd">
+                                                        <rect key="frame" x="16" y="25" width="343" height="446"/>
+                                                        <subviews>
+                                                            <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-OY-41q" customClass="fontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                                                <variation key="heightClass=compact">
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                                </variation>
+                                                            </textField>
+                                                            <textField opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-Mg-foo" customClass="fontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="398" width="343" height="48"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="teste" value="YES"/>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact">
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                                </variation>
+                                                            </textField>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="8b5-Se-ecd" firstAttribute="top" secondItem="I04-Et-wSS" secondAttribute="top" constant="25" id="18c-E4-FP8"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8b5-Se-ecd" secondAttribute="trailing" constant="16" id="FTY-iz-UJY"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wdu-Xl-CZd" secondAttribute="trailing" id="JDD-nq-UH4"/>
+                                                    <constraint firstAttribute="bottom" secondItem="wdu-Xl-CZd" secondAttribute="bottom" id="KnW-Ww-djD"/>
+                                                    <constraint firstItem="wdu-Xl-CZd" firstAttribute="leading" secondItem="I04-Et-wSS" secondAttribute="leading" id="bNz-c8-ezk"/>
+                                                    <constraint firstItem="8b5-Se-ecd" firstAttribute="leading" secondItem="I04-Et-wSS" secondAttribute="leading" constant="16" id="cPp-gc-FgH"/>
+                                                    <constraint firstItem="wdu-Xl-CZd" firstAttribute="top" secondItem="I04-Et-wSS" secondAttribute="top" id="e9L-mi-4WU"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8b5-Se-ecd" secondAttribute="bottom" constant="25" id="gop-cE-dz3"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="I04-Et-wSS" firstAttribute="width" secondItem="AJf-g7-F5V" secondAttribute="width" id="dDo-50-xtK"/>
+                                        </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-6V-RhO">
                                         <rect key="frame" x="69.5" y="506" width="236" height="70"/>
@@ -303,10 +348,17 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="AJf-g7-F5V" firstAttribute="height" secondItem="IZs-xv-1mF" secondAttribute="height" id="E7K-JR-rft"/>
                                     <constraint firstItem="AJf-g7-F5V" firstAttribute="width" secondItem="IZs-xv-1mF" secondAttribute="width" id="haO-4M-QVN"/>
                                 </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="E7K-JR-rft"/>
+                                    </mask>
+                                </variation>
                                 <variation key="heightClass=compact" axis="horizontal">
                                     <mask key="constraints">
+                                        <include reference="E7K-JR-rft"/>
                                         <exclude reference="haO-4M-QVN"/>
                                     </mask>
                                 </variation>
@@ -340,15 +392,21 @@
                     </view>
                     <nil key="simulatedTopBarMetrics"/>
                     <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomText" destination="Lh0-Mg-foo" id="n0Q-VL-Ieq"/>
+                        <outlet property="imagePickerView" destination="wdu-Xl-CZd" id="czO-lc-NfM"/>
+                        <outlet property="shareBtn" destination="PfX-Oy-Gft" id="Txu-6S-jYD"/>
+                        <outlet property="topText" destination="7Ub-OY-41q" id="pXR-6p-kwF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZA8-3V-FDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1512.8" y="-1024.1379310344828"/>
         </scene>
-        <!--Meme MainVC-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeMainVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -457,24 +515,15 @@
                     <navigationItem key="navigationItem" id="Eqd-AX-F46">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="VaF-Ta-y7u">
                             <color key="tintColor" red="0.4823529412" green="0.45098039220000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="Yfe-C1-JNj"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="gZj-2T-wYq">
                             <color key="tintColor" red="0.4823529412" green="0.45098039220000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="dismissViewPress:" destination="BYZ-38-t0r" id="Nvc-5e-b2E"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomText" destination="w5O-Bg-aEo" id="SET-6R-ylA"/>
                         <outlet property="cameraBtn" destination="YMv-eR-GMr" id="uCf-1S-kiR"/>
                         <outlet property="imagePickerView" destination="QDa-3R-bal" id="164-Pf-lLD"/>
                         <outlet property="scrollView" destination="B3b-fT-iDq" id="UMx-a9-HjO"/>
-                        <outlet property="shareBtn" destination="VaF-Ta-y7u" id="zFf-wN-q55"/>
-                        <outlet property="topText" destination="7XO-Iz-aJP" id="9Cr-cN-OmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

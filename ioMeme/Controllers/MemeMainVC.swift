@@ -19,8 +19,8 @@ class MemeMainVC: UIViewController {
     
     var meme: Meme!
     
-    @IBOutlet weak var shareBtn: UIBarButtonItem!
-    @IBOutlet weak var cameraBtn: UIBarButtonItem!
+    @IBOutlet weak var shareBtn: UIButton!
+    @IBOutlet weak var cameraBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
