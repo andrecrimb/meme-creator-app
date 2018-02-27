@@ -15,6 +15,7 @@ class TextFieldDelegate: NSObject, UITextFieldDelegate{
     func textFieldDidBeginEditing(_ textField: UITextField) {
         textField.text = ""
         self.activeField = textField
+        print(textField)
     }
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField.tag == 1000 && textField.text == ""{
