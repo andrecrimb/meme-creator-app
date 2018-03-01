@@ -65,7 +65,8 @@ class MemeMainVC: UIViewController {
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         controller.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             if completed {
-                self.save()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         self.present(controller, animated: true, completion: nil)

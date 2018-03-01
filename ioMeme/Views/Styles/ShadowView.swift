@@ -34,7 +34,7 @@ class ShadowView: UIView {
             self.layer.cornerRadius = 16
             self.layer.shadowColor = UIColor.black.cgColor
             self.layer.shadowOffset = CGSize(width: 1, height: 1)  //Here you control x and y
-            self.layer.shadowOpacity = 0.4
+            self.layer.shadowOpacity = 0.3
             self.layer.shadowRadius = 6 //Here your control your blur
             self.layer.masksToBounds =  false
             layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 16).cgPath

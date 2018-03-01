@@ -8,25 +8,19 @@
 
 import UIKit
 
-private let reuseIdentifier = "MemeCollectionCelll"
+private let reuseIdentifier = "MemeCollectionCell"
 
 class SentMemesCVC: UICollectionViewController {
 
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
+    
+    var memes = [Meme]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        self.collectionView!.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
     }
 
     /*
@@ -42,55 +36,48 @@ class SentMemesCVC: UICollectionViewController {
     // MARK: UICollectionViewDataSource
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
-        return 60
+        return memes.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath)
-   
-                // Configure the cell
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath) as? MemeCollectionCell {
+            let memeCell = memes[indexPath.row]
+            cell.configureCell(meme: memeCell)
+            return cell
+        }
+        return UICollectionViewCell()
+    }
     
-        return cell
+    @objc func reloadTable(_ notif: Notification){
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        memes = appDelegate.memes
+        self.collectionView?.reloadData()
+        setupFlowLayout()
     }
-
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        var numOfColumns: CGFloat = 3
+        if UIScreen.main.bounds.width > 320 {
+            numOfColumns = 4
+        }
+        
+        let spaceBetweenCells: CGFloat = 10
+        let padding: CGFloat = 40
+        let cellDimention = ((collectionView.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / numOfColumns
+        
+        return CGSize(width: cellDimention, height: cellDimention)
+    }
     
-    // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
-    override func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return true
+    func setupFlowLayout(){
+//        let space: CGFloat = 10.0
+//        let dimension = ((view.frame.size.width) - (2 * space)) / 3.0
+//        flowLayout.minimumInteritemSpacing = space
+//        flowLayout.minimumLineSpacing = space
+//        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
     }
-    */
-
-    /*
-    // Uncomment this method to specify if the specified item should be selected
-    override func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }
-    */
-
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(_ collectionView: UICollectionView, shouldShowMenuForItemAt indexPath: IndexPath) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, canPerformAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) -> Bool {
-        return false
-    }
-
-    override func collectionView(_ collectionView: UICollectionView, performAction action: Selector, forItemAt indexPath: IndexPath, withSender sender: Any?) {
-    
-    }
-    */
-
 }

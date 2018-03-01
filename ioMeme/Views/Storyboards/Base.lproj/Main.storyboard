@@ -44,8 +44,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="kE2-t3-kKI">
+                            <rect key="frame" x="0.0" y="148" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeTableCell" rowHeight="120" id="U7Q-m3-Aki">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeTableCell" rowHeight="120" id="U7Q-m3-Aki" customClass="MemeTableCell" customModule="ioMeme" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U7Q-m3-Aki" id="qI1-A7-dYn">
@@ -110,6 +115,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="bottomText" destination="sYu-5q-GyC" id="uqc-RR-6tx"/>
+                                    <outlet property="memeImage" destination="uRM-1H-ZL3" id="vcJ-PW-zV3"/>
+                                    <outlet property="topText" destination="oeD-DD-kBD" id="HqN-GJ-4Ra"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -145,7 +155,7 @@
                             <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="VYS-oD-Zpu">
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="VYS-oD-Zpu" customClass="MemeCollectionCell" customModule="ioMeme" customModuleProvider="target">
                                 <rect key="frame" x="16" y="16" width="105" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
@@ -185,6 +195,9 @@
                                     <constraint firstAttribute="bottom" secondItem="MpF-23-VmS" secondAttribute="bottom" id="Tbg-t6-KRi"/>
                                     <constraint firstItem="MpF-23-VmS" firstAttribute="top" secondItem="VYS-oD-Zpu" secondAttribute="top" id="u1U-he-qVR"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="memeImage" destination="57F-UX-CR4" id="BVf-g1-FS8"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -200,6 +213,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="9ig-W8-WMF" id="KxK-6W-JBB"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4E-eW-SrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -235,10 +251,10 @@
                                                     </button>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-xv-1mF">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-xv-1mF">
                                                 <rect key="frame" x="0.0" y="57" width="375" height="583"/>
                                                 <subviews>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I04-Et-wSS">
