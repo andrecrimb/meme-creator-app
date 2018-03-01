@@ -10,7 +10,7 @@ import UIKit
 
 private let reuseIdentifier = "MemeCollectionCell"
 
-class SentMemesCVC: UICollectionViewController {
+class SentMemesCVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
     
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
@@ -41,43 +41,39 @@ class SentMemesCVC: UICollectionViewController {
 
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return memes.count
+//        return memes.count
+        
+        return 80
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath) as? MemeCollectionCell {
-            let memeCell = memes[indexPath.row]
-            cell.configureCell(meme: memeCell)
-            return cell
-        }
-        return UICollectionViewCell()
+//        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath) as? MemeCollectionCell {
+//            let memeCell = memes[indexPath.row]
+//            cell.configureCell(meme: memeCell)
+//            return cell
+//        }
+//        return UICollectionViewCell()
+        
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MemeCollectionCell", for: indexPath)
+        return cell
     }
     
     @objc func reloadTable(_ notif: Notification){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
         self.collectionView?.reloadData()
-        setupFlowLayout()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        var numOfColumns: CGFloat = 3
-        if UIScreen.main.bounds.width > 320 {
-            numOfColumns = 4
+        if UIScreen.main.bounds.width < 321 {
+            let numOfColumns: CGFloat = 3
+            let spaceBetweenCells: CGFloat = 10
+            let padding: CGFloat = 40
+            let cellDimention = ((collectionView.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / numOfColumns
+            
+            return CGSize(width: cellDimention, height: cellDimention)
         }
-        
-        let spaceBetweenCells: CGFloat = 10
-        let padding: CGFloat = 40
-        let cellDimention = ((collectionView.bounds.width - padding) - (numOfColumns - 1) * spaceBetweenCells) / numOfColumns
-        
-        return CGSize(width: cellDimention, height: cellDimention)
+        return CGSize(width: 105, height: 105)
     }
-    
-    func setupFlowLayout(){
-//        let space: CGFloat = 10.0
-//        let dimension = ((view.frame.size.width) - (2 * space)) / 3.0
-//        flowLayout.minimumInteritemSpacing = space
-//        flowLayout.minimumLineSpacing = space
-//        flowLayout.itemSize = CGSize(width: dimension, height: dimension)
-    }
+
 }

@@ -195,6 +195,7 @@
                                     <constraint firstAttribute="bottom" secondItem="MpF-23-VmS" secondAttribute="bottom" id="Tbg-t6-KRi"/>
                                     <constraint firstItem="MpF-23-VmS" firstAttribute="top" secondItem="VYS-oD-Zpu" secondAttribute="top" id="u1U-he-qVR"/>
                                 </constraints>
+                                <size key="customSize" width="105" height="105"/>
                                 <connections>
                                     <outlet property="memeImage" destination="57F-UX-CR4" id="BVf-g1-FS8"/>
                                 </connections>
@@ -658,6 +659,6 @@
         <image name="table_icon" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="oEm-8d-Hha"/>
+        <segue reference="6JS-2h-5Bq"/>
     </inferredMetricsTieBreakers>
 </document>
