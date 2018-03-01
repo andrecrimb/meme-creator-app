@@ -19,8 +19,8 @@ class MemeMainVC: UIViewController {
     
     var meme: Meme!
     
-    @IBOutlet weak var shareBtn: UIBarButtonItem!
-    @IBOutlet weak var cameraBtn: UIBarButtonItem!
+    @IBOutlet weak var shareBtn: UIButton!
+//    @IBOutlet weak var cameraBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +36,7 @@ class MemeMainVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
         subscribeToKeyboardNotifications(scrollView: scrollView)
-        cameraBtn.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        shareBtn.isEnabled = imagePickerView.image != nil
     }
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -47,12 +47,26 @@ class MemeMainVC: UIViewController {
         view.endEditing(true)
     }
     
+    @IBAction func cameraOptions(_ sender: Any) {
+        let controller = UIAlertController(title: "Choose from source", message: nil, preferredStyle: .actionSheet)
+        controller.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
+            self.pickAnImageFromSource(sourceType: .camera)
+        }))
+        controller.addAction(UIAlertAction(title: "Album", style: .default, handler: { (UIAlertAction) in
+            self.pickAnImageFromSource(sourceType: .savedPhotosAlbum)
+        }))
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    
     @IBAction func shareMeme(_ sender: Any) {
         self.save()
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
         controller.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             if completed {
-                self.save()
+                NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
+                self.dismiss(animated: true, completion: nil)
             }
         }
         self.present(controller, animated: true, completion: nil)
@@ -109,11 +123,8 @@ class MemeMainVC: UIViewController {
 }
 
 extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-    @IBAction func pickAnImageFromCamera(_ sender: Any) {
-        presentImagePickerWith(sourceType: .camera)
-    }
-    @IBAction func pickAnImageFromAlbum(_ sender: Any) {
-        presentImagePickerWith(sourceType: .photoLibrary)
+     func pickAnImageFromSource(sourceType: UIImagePickerControllerSourceType) {
+        presentImagePickerWith(sourceType: sourceType)
     }
     
     func presentImagePickerWith(sourceType: UIImagePickerControllerSourceType){

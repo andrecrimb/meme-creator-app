@@ -39,43 +39,64 @@
         <!--Sent Memes-->
         <scene sceneID="2px-Re-hp4">
             <objects>
-                <tableViewController id="bSe-fg-KPa" sceneMemberID="viewController">
+                <tableViewController id="bSe-fg-KPa" customClass="SentMemesTVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P0J-u3-p5L">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <view key="tableFooterView" contentMode="scaleToFill" id="kE2-t3-kKI">
+                            <rect key="frame" x="0.0" y="148" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </view>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeCell" rowHeight="114" id="U7Q-m3-Aki">
-                                <rect key="frame" x="0.0" y="28" width="375" height="114"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MemeTableCell" rowHeight="120" id="U7Q-m3-Aki" customClass="MemeTableCell" customModule="ioMeme" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="U7Q-m3-Aki" id="qI1-A7-dYn">
-                                    <rect key="frame" x="0.0" y="0.0" width="341" height="113.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="341" height="119.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Luk-WD-Q8e">
-                                            <rect key="frame" x="16" y="0.0" width="325" height="113.5"/>
+                                            <rect key="frame" x="16" y="0.0" width="325" height="119.5"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3">
-                                                    <rect key="frame" x="0.0" y="9.5" width="95" height="95"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-v3-cHV" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="12.5" width="95" height="95"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                    <real key="value" value="16"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                                <userDefinedRuntimeAttribute type="boolean" keyPath="Rounded" value="YES"/>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </imageView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="uRM-1H-ZL3" secondAttribute="height" multiplier="1:1" id="3F1-xg-Mbc"/>
-                                                        <constraint firstAttribute="width" constant="95" id="Imn-Uo-s9g"/>
-                                                        <constraint firstAttribute="height" constant="95" id="dnw-xZ-Rez"/>
+                                                        <constraint firstAttribute="width" constant="95" id="56k-kX-p99"/>
+                                                        <constraint firstItem="uRM-1H-ZL3" firstAttribute="leading" secondItem="MI0-v3-cHV" secondAttribute="leading" id="8nY-MA-tk4"/>
+                                                        <constraint firstAttribute="height" constant="95" id="NBx-uw-FqX"/>
+                                                        <constraint firstItem="uRM-1H-ZL3" firstAttribute="top" secondItem="MI0-v3-cHV" secondAttribute="top" id="jLd-Aa-sug"/>
+                                                        <constraint firstAttribute="bottom" secondItem="uRM-1H-ZL3" secondAttribute="bottom" id="p6t-D4-M0r"/>
+                                                        <constraint firstAttribute="trailing" secondItem="uRM-1H-ZL3" secondAttribute="trailing" id="rcJ-oB-AUq"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="ShadowView" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
-                                                </imageView>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Xvl-WM-x24">
-                                                    <rect key="frame" x="111" y="28.5" width="214" height="57"/>
+                                                    <rect key="frame" x="111" y="31.5" width="214" height="57"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD">
                                                             <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC">
                                                             <rect key="frame" x="0.0" y="36.5" width="214" height="20.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
@@ -94,6 +115,11 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <inset key="separatorInset" minX="125" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <connections>
+                                    <outlet property="bottomText" destination="sYu-5q-GyC" id="uqc-RR-6tx"/>
+                                    <outlet property="memeImage" destination="uRM-1H-ZL3" id="vcJ-PW-zV3"/>
+                                    <outlet property="topText" destination="oeD-DD-kBD" id="HqN-GJ-4Ra"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -104,6 +130,9 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="iOw-7r-R1Q">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="p1b-AR-UEb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="TCh-Do-cRs" kind="presentation" id="oEm-8d-Hha"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
@@ -114,25 +143,61 @@
         <!--Sent Memes-->
         <scene sceneID="gO1-nc-g99">
             <objects>
-                <collectionViewController id="ho0-Jl-pYs" sceneMemberID="viewController">
+                <collectionViewController id="ho0-Jl-pYs" customClass="SentMemesCVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4Re-vb-hJr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Gic-V4-wyt">
-                            <size key="itemSize" width="50" height="50"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="9ig-W8-WMF">
+                            <size key="itemSize" width="105" height="105"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="VYS-oD-Zpu">
-                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MemeCollectionCell" id="VYS-oD-Zpu" customClass="MemeCollectionCell" customModule="ioMeme" customModuleProvider="target">
+                                <rect key="frame" x="16" y="16" width="105" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpF-23-VmS" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="57F-UX-CR4" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                            <real key="value" value="16"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="boolean" keyPath="Rounded" value="YES"/>
+                                                    </userDefinedRuntimeAttributes>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="57F-UX-CR4" firstAttribute="leading" secondItem="MpF-23-VmS" secondAttribute="leading" id="2IT-3c-yP0"/>
+                                                <constraint firstItem="57F-UX-CR4" firstAttribute="top" secondItem="MpF-23-VmS" secondAttribute="top" id="Tn5-7p-fNJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="57F-UX-CR4" secondAttribute="bottom" id="pZ9-aQ-tup"/>
+                                                <constraint firstAttribute="trailing" secondItem="57F-UX-CR4" secondAttribute="trailing" id="rvg-NM-HVt"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="ShadowView" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="MpF-23-VmS" firstAttribute="leading" secondItem="VYS-oD-Zpu" secondAttribute="leading" id="HHY-oX-V3v"/>
+                                    <constraint firstAttribute="trailing" secondItem="MpF-23-VmS" secondAttribute="trailing" id="I2P-rd-WKw"/>
+                                    <constraint firstAttribute="bottom" secondItem="MpF-23-VmS" secondAttribute="bottom" id="Tbg-t6-KRi"/>
+                                    <constraint firstItem="MpF-23-VmS" firstAttribute="top" secondItem="VYS-oD-Zpu" secondAttribute="top" id="u1U-he-qVR"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="memeImage" destination="57F-UX-CR4" id="BVf-g1-FS8"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -143,17 +208,243 @@
                     <navigationItem key="navigationItem" title="Sent Memes" id="0lK-wo-a66">
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="sQr-dw-hYk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="TCh-Do-cRs" kind="presentation" id="6JS-2h-5Bq"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="flowLayout" destination="9ig-W8-WMF" id="KxK-6W-JBB"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4E-eW-SrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="521" y="-699"/>
+            <point key="canvasLocation" x="520.79999999999995" y="-699.40029985007504"/>
         </scene>
         <!--Meme MainVC-->
+        <scene sceneID="AME-BX-MtJ">
+            <objects>
+                <viewController modalPresentationStyle="overFullScreen" hidesBottomBarWhenPushed="YES" id="TCh-Do-cRs" customClass="MemeMainVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eOF-xk-zwS" customClass="BlurView" customModule="ioMeme" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMi-hs-0dc">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7E-1g-qJd">
+                                        <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="bottom" translatesAutoresizingMaskIntoConstraints="NO" id="maB-e8-LbU">
+                                                <rect key="frame" x="10" y="6" width="355" height="45"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U0L-LL-lWx">
+                                                        <rect key="frame" x="310" y="0.0" width="45" height="45"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" constant="45" id="VBe-nm-U2X"/>
+                                                            <constraint firstAttribute="height" constant="45" id="qL6-Um-c17"/>
+                                                        </constraints>
+                                                        <state key="normal" image="close_btn"/>
+                                                        <connections>
+                                                            <action selector="dismissViewPress:" destination="TCh-Do-cRs" eventType="touchUpInside" id="ehY-WM-GkO"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-xv-1mF">
+                                                <rect key="frame" x="0.0" y="57" width="375" height="583"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="AJf-g7-F5V">
+                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I04-Et-wSS">
+                                                                <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="wdu-Xl-CZd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="375" height="506"/>
+                                                                    </imageView>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8b5-Se-ecd">
+                                                                        <rect key="frame" x="16" y="25" width="343" height="456"/>
+                                                                        <subviews>
+                                                                            <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-OY-41q" customClass="fontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="0.0" width="343" height="48"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                                                                <variation key="heightClass=compact">
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                                                </variation>
+                                                                            </textField>
+                                                                            <textField opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-Mg-foo" customClass="fontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                                <rect key="frame" x="0.0" y="408" width="343" height="48"/>
+                                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
+                                                                                <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" returnKeyType="done"/>
+                                                                                <userDefinedRuntimeAttributes>
+                                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="teste" value="YES"/>
+                                                                                </userDefinedRuntimeAttributes>
+                                                                                <variation key="heightClass=compact">
+                                                                                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
+                                                                                </variation>
+                                                                            </textField>
+                                                                        </subviews>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstItem="8b5-Se-ecd" firstAttribute="top" secondItem="I04-Et-wSS" secondAttribute="top" constant="25" id="18c-E4-FP8"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="8b5-Se-ecd" secondAttribute="trailing" constant="16" id="FTY-iz-UJY"/>
+                                                                    <constraint firstAttribute="trailing" secondItem="wdu-Xl-CZd" secondAttribute="trailing" id="JDD-nq-UH4"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="wdu-Xl-CZd" secondAttribute="bottom" id="KnW-Ww-djD"/>
+                                                                    <constraint firstItem="wdu-Xl-CZd" firstAttribute="leading" secondItem="I04-Et-wSS" secondAttribute="leading" id="bNz-c8-ezk"/>
+                                                                    <constraint firstItem="8b5-Se-ecd" firstAttribute="leading" secondItem="I04-Et-wSS" secondAttribute="leading" constant="16" id="cPp-gc-FgH"/>
+                                                                    <constraint firstItem="wdu-Xl-CZd" firstAttribute="top" secondItem="I04-Et-wSS" secondAttribute="top" id="e9L-mi-4WU"/>
+                                                                    <constraint firstAttribute="bottom" secondItem="8b5-Se-ecd" secondAttribute="bottom" constant="25" id="gop-cE-dz3"/>
+                                                                </constraints>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Es8-6V-RhO">
+                                                        <rect key="frame" x="69.5" y="513" width="236" height="70"/>
+                                                        <subviews>
+                                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1M0-g0-dGw" customClass="BlurView" customModule="ioMeme" customModuleProvider="target">
+                                                                <rect key="frame" x="0.0" y="0.0" width="236" height="70"/>
+                                                                <subviews>
+                                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Sog-Nu-ofZ">
+                                                                        <rect key="frame" x="36" y="6" width="165" height="59"/>
+                                                                        <subviews>
+                                                                            <button opaque="NO" alpha="0.0" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ep-cA-b18">
+                                                                                <rect key="frame" x="0.0" y="11.5" width="37" height="36"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="37" id="b9H-mL-mi0"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="button_share copy"/>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ttS-zg-PEx">
+                                                                                <rect key="frame" x="53" y="0.0" width="59" height="59"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="59" id="6in-8k-NTS"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="button_camera"/>
+                                                                                <connections>
+                                                                                    <action selector="cameraOptions:" destination="TCh-Do-cRs" eventType="touchUpInside" id="m5W-2c-yGt"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PfX-Oy-Gft">
+                                                                                <rect key="frame" x="128" y="11.5" width="37" height="36"/>
+                                                                                <constraints>
+                                                                                    <constraint firstAttribute="width" constant="37" id="UpO-dR-8ho"/>
+                                                                                </constraints>
+                                                                                <state key="normal" image="button_share copy"/>
+                                                                                <connections>
+                                                                                    <action selector="shareMeme:" destination="TCh-Do-cRs" eventType="touchUpInside" id="ah2-7E-hjF"/>
+                                                                                </connections>
+                                                                            </button>
+                                                                        </subviews>
+                                                                        <variation key="heightClass=compact" axis="vertical"/>
+                                                                    </stackView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" constant="236" id="7wL-yb-di6">
+                                                                        <variation key="heightClass=compact" constant="70"/>
+                                                                    </constraint>
+                                                                    <constraint firstItem="Sog-Nu-ofZ" firstAttribute="centerX" secondItem="1M0-g0-dGw" secondAttribute="centerX" id="Km0-N3-Rdj"/>
+                                                                    <constraint firstAttribute="width" secondItem="1M0-g0-dGw" secondAttribute="height" multiplier="118:35" id="Ueu-ju-rPh"/>
+                                                                    <constraint firstAttribute="height" constant="70" id="mQq-pW-vsO">
+                                                                        <variation key="heightClass=compact" constant="236"/>
+                                                                    </constraint>
+                                                                    <constraint firstItem="Sog-Nu-ofZ" firstAttribute="centerY" secondItem="1M0-g0-dGw" secondAttribute="centerY" id="qqu-OR-9qM"/>
+                                                                </constraints>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Blur" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="Corner">
+                                                                        <real key="value" value="100"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="blur" value="YES"/>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                                        <real key="value" value="35"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                    <userDefinedRuntimeAttribute type="number" keyPath="blurStyle">
+                                                                        <integer key="value" value="1"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <variation key="heightClass=compact">
+                                                                    <mask key="constraints">
+                                                                        <exclude reference="Ueu-ju-rPh"/>
+                                                                    </mask>
+                                                                </variation>
+                                                            </view>
+                                                        </subviews>
+                                                    </stackView>
+                                                </subviews>
+                                                <variation key="heightClass=compact" axis="horizontal"/>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstItem="IZs-xv-1mF" firstAttribute="leading" secondItem="L7E-1g-qJd" secondAttribute="leading" id="412-4O-TAZ">
+                                                <variation key="heightClass=compact" constant="7"/>
+                                            </constraint>
+                                            <constraint firstAttribute="trailing" secondItem="maB-e8-LbU" secondAttribute="trailing" constant="10" id="8Po-p6-wjE"/>
+                                            <constraint firstItem="IZs-xv-1mF" firstAttribute="top" secondItem="maB-e8-LbU" secondAttribute="bottom" constant="6" id="Sgv-GY-dbn"/>
+                                            <constraint firstAttribute="trailing" secondItem="IZs-xv-1mF" secondAttribute="trailing" id="c8R-dE-OWt">
+                                                <variation key="heightClass=compact" constant="7"/>
+                                            </constraint>
+                                            <constraint firstAttribute="bottom" secondItem="IZs-xv-1mF" secondAttribute="bottom" constant="7" id="jHC-Li-vip"/>
+                                            <constraint firstItem="maB-e8-LbU" firstAttribute="leading" secondItem="L7E-1g-qJd" secondAttribute="leading" constant="10" id="jYb-VG-dqj"/>
+                                            <constraint firstItem="maB-e8-LbU" firstAttribute="top" secondItem="L7E-1g-qJd" secondAttribute="top" constant="6" id="qDs-13-pMg"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="L7E-1g-qJd" secondAttribute="bottom" id="Fta-At-ra7"/>
+                                    <constraint firstAttribute="trailing" secondItem="L7E-1g-qJd" secondAttribute="trailing" id="igu-1j-mq1"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="bMi-hs-0dc" firstAttribute="trailing" secondItem="eOF-xk-zwS" secondAttribute="trailing" id="KRd-ts-k3h"/>
+                            <constraint firstItem="h5y-Rj-Hfp" firstAttribute="trailing" secondItem="L7E-1g-qJd" secondAttribute="trailing" id="WuN-nE-Lsg"/>
+                            <constraint firstItem="bMi-hs-0dc" firstAttribute="bottom" secondItem="eOF-xk-zwS" secondAttribute="bottom" id="XSM-P3-bR5"/>
+                            <constraint firstItem="bMi-hs-0dc" firstAttribute="top" secondItem="eOF-xk-zwS" secondAttribute="top" id="bPJ-KS-Uwb"/>
+                            <constraint firstItem="L7E-1g-qJd" firstAttribute="leading" secondItem="h5y-Rj-Hfp" secondAttribute="leading" id="jAB-ev-peM"/>
+                            <constraint firstItem="bMi-hs-0dc" firstAttribute="leading" secondItem="eOF-xk-zwS" secondAttribute="leading" id="ocy-SF-Bji"/>
+                            <constraint firstItem="L7E-1g-qJd" firstAttribute="bottom" secondItem="h5y-Rj-Hfp" secondAttribute="bottom" id="yqg-MC-d8I"/>
+                            <constraint firstItem="h5y-Rj-Hfp" firstAttribute="top" secondItem="L7E-1g-qJd" secondAttribute="top" id="zbT-Jc-vF8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="h5y-Rj-Hfp"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="Blur" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="BlurStyle">
+                                <integer key="value" value="1"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="blur" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="blurStyle">
+                                <integer key="value" value="3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="bottomText" destination="Lh0-Mg-foo" id="n0Q-VL-Ieq"/>
+                        <outlet property="imagePickerView" destination="wdu-Xl-CZd" id="czO-lc-NfM"/>
+                        <outlet property="scrollView" destination="bMi-hs-0dc" id="MIf-3G-c5a"/>
+                        <outlet property="shareBtn" destination="PfX-Oy-Gft" id="Txu-6S-jYD"/>
+                        <outlet property="topText" destination="7Ub-OY-41q" id="pXR-6p-kwF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZA8-3V-FDh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1512.8" y="-1024.1379310344828"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MemeMainVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,29 +553,20 @@
                     <navigationItem key="navigationItem" id="Eqd-AX-F46">
                         <barButtonItem key="leftBarButtonItem" systemItem="action" id="VaF-Ta-y7u">
                             <color key="tintColor" red="0.4823529412" green="0.45098039220000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="shareMeme:" destination="BYZ-38-t0r" id="Yfe-C1-JNj"/>
-                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Cancel" id="gZj-2T-wYq">
                             <color key="tintColor" red="0.4823529412" green="0.45098039220000002" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <connections>
-                                <action selector="dismissViewPress:" destination="BYZ-38-t0r" id="Nvc-5e-b2E"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="bottomText" destination="w5O-Bg-aEo" id="SET-6R-ylA"/>
                         <outlet property="cameraBtn" destination="YMv-eR-GMr" id="uCf-1S-kiR"/>
                         <outlet property="imagePickerView" destination="QDa-3R-bal" id="164-Pf-lLD"/>
                         <outlet property="scrollView" destination="B3b-fT-iDq" id="UMx-a9-HjO"/>
-                        <outlet property="shareBtn" destination="VaF-Ta-y7u" id="zFf-wN-q55"/>
-                        <outlet property="topText" destination="7XO-Iz-aJP" id="9Cr-cN-OmU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1672.8" y="-104.7976011994003"/>
+            <point key="canvasLocation" x="2012" y="111"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="lta-tb-eCN">
@@ -307,7 +589,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b5z-6j-a5e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="-894.60269865067471"/>
+            <point key="canvasLocation" x="2807" y="110"/>
         </scene>
         <!--Table-->
         <scene sceneID="fuv-iW-zH8">
@@ -369,7 +651,13 @@
     </scenes>
     <resources>
         <image name="arrow" width="736" height="936"/>
+        <image name="button_camera" width="59" height="59"/>
+        <image name="button_share copy" width="36" height="36"/>
+        <image name="close_btn" width="51" height="51"/>
         <image name="grid_icon" width="27" height="26"/>
         <image name="table_icon" width="27" height="26"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="oEm-8d-Hha"/>
+    </inferredMetricsTieBreakers>
 </document>
