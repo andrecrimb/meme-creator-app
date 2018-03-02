@@ -20,7 +20,6 @@ class MemeMainVC: UIViewController {
     var meme: Meme!
     
     @IBOutlet weak var shareBtn: UIButton!
-//    @IBOutlet weak var cameraBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +30,8 @@ class MemeMainVC: UIViewController {
         
         bottomText.delegate = textFieldDelegate
         topText.delegate = textFieldDelegate
+        
+        initMemeData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -119,6 +120,14 @@ class MemeMainVC: UIViewController {
     
     func checkShareButtonAvaliable(){
       shareBtn.isEnabled = (imagePickerView != nil)
+    }
+    
+    func initMemeData(){
+        if meme != nil{
+            imagePickerView.image = meme.originalImage
+            bottomText.text = meme.bottomText
+            topText.text = meme.topText
+        }
     }
 }
 
