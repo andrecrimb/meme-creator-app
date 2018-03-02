@@ -21,6 +21,16 @@ class SentMemesTVC: UITableViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_MEME_EDITOR{
+            if let memeEditor = segue.destination as? MemeMainVC{
+                if let meme = sender as? Meme{
+                    memeEditor.meme = meme
+                }
+            }
+        }
+    }
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -37,6 +47,11 @@ class SentMemesTVC: UITableViewController {
         }
         return UITableViewCell()
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let meme: Meme = memes[indexPath.row]
+        performSegue(withIdentifier: TO_MEME_EDITOR, sender: meme)
+    }
 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 114
@@ -46,6 +61,10 @@ class SentMemesTVC: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
         self.tableView.reloadData()
+    }
+    
+    @IBAction func toMemeEditor(_ sender: Any){
+        performSegue(withIdentifier: TO_MEME_EDITOR, sender: nil)
     }
     
 }

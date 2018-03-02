@@ -63,7 +63,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MI0-v3-cHV" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="12.5" width="95" height="95"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRM-1H-ZL3" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="95" height="95"/>
                                                             <userDefinedRuntimeAttributes>
                                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
@@ -131,10 +131,13 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="p1b-AR-UEb">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="TCh-Do-cRs" kind="presentation" id="oEm-8d-Hha"/>
+                                <action selector="toMemeEditor:" destination="bSe-fg-KPa" id="w7S-AS-vQM"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="TCh-Do-cRs" kind="presentation" identifier="ToMemeEditor" id="6qR-o2-Uoi"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PUc-lP-OtV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -144,7 +147,7 @@
         <scene sceneID="gO1-nc-g99">
             <objects>
                 <collectionViewController id="ho0-Jl-pYs" customClass="SentMemesCVC" customModule="ioMeme" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="4Re-vb-hJr">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" id="4Re-vb-hJr">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -165,7 +168,7 @@
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MpF-23-VmS" customClass="ShadowView" customModule="ioMeme" customModuleProvider="target">
                                             <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                             <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow" translatesAutoresizingMaskIntoConstraints="NO" id="57F-UX-CR4" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="57F-UX-CR4" customClass="RoundedImage" customModule="ioMeme" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="105" height="105"/>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="CustomShadow" value="YES"/>
@@ -210,12 +213,13 @@
                         <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="sQr-dw-hYk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="TCh-Do-cRs" kind="presentation" id="6JS-2h-5Bq"/>
+                                <action selector="toMemeEditor:" destination="ho0-Jl-pYs" id="vBc-1Y-ZYZ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="flowLayout" destination="9ig-W8-WMF" id="KxK-6W-JBB"/>
+                        <segue destination="TCh-Do-cRs" kind="presentation" identifier="ToMemeEditor" id="ukE-rP-pMa"/>
                     </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u4E-eW-SrE" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -651,7 +655,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow" width="736" height="936"/>
         <image name="button_camera" width="59" height="59"/>
         <image name="button_share copy" width="36" height="36"/>
         <image name="close_btn" width="51" height="51"/>
@@ -659,6 +662,6 @@
         <image name="table_icon" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="6JS-2h-5Bq"/>
+        <segue reference="ukE-rP-pMa"/>
     </inferredMetricsTieBreakers>
 </document>

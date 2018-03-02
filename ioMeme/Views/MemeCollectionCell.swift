@@ -16,7 +16,7 @@ class MemeCollectionCell: UICollectionViewCell {
     
     func configureCell(meme: Meme){
         self.meme = meme
-        memeImage.image = self.meme.originalImage
+        memeImage.image = self.meme.memedImage
     }    
 }
 
