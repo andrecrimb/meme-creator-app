@@ -12,6 +12,7 @@ class MemeMainVC: UIViewController {
 
     // MARK: Setting IBOutlets
     
+    @IBOutlet weak var backgroundViewImage: UIView!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var topText: UITextField!
@@ -34,7 +35,8 @@ class MemeMainVC: UIViewController {
         bottomText.delegate = textFieldDelegate
         topText.delegate = textFieldDelegate
         
-        initMemeData()
+        areLabelsHidden(hidden: (imagePickerView.image == nil))
+        
     }
     // MARK: Subscribing to keybord notifications to scroll the view
     override func viewWillAppear(_ animated: Bool) {
@@ -125,15 +127,18 @@ class MemeMainVC: UIViewController {
             
             let memedImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()!
             UIGraphicsEndImageContext()
+            
             return memedImage
         }
         return UIImage()
     }
     
     
-    // MARK: Method save the meme in appDelegate
+    // MARK: Method save the meme in appDelegate and set the background color to white before save
     func save(){
+        backgroundViewImage.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         let memedImage: UIImage = generateMemedImage()
+        backgroundViewImage.backgroundColor = nil
         self.meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
         let object = UIApplication.shared.delegate
         let appDelegate = object as! AppDelegate
@@ -147,17 +152,6 @@ class MemeMainVC: UIViewController {
     func areLabelsHidden(hidden: Bool){
         topText.isHidden = hidden
         bottomText.isHidden = hidden
-    }
-    
-    func initMemeData(){
-        if meme != nil{
-            imagePickerView.image = meme.originalImage
-            bottomText.text = meme.bottomText
-            topText.text = meme.topText
-        } else {
-            // MARK: Check if there is an image to show the labels
-            areLabelsHidden(hidden: (imagePickerView.image == nil))
-        }
     }
 }
 

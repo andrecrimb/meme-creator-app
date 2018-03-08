@@ -13,3 +13,4 @@ let TABLE_CELL_ID = "MemeTableCell"
 let NOTIF_RELOAD_TABLE = "ReloadTable"
 
 let TO_MEME_EDITOR = "ToMemeEditor"
+let TO_MEME_DETAIL = "ToMemeDetail"

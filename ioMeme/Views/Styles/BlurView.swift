@@ -21,7 +21,7 @@ class BlurView: UIView {
     }
    
     @IBInspectable
-    var blurStyle: Int = 1{
+    var blurStyle: Int = 3{
         didSet{
             switch blurStyle {
             case 1:
