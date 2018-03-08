@@ -43,6 +43,10 @@ class MemeMainVC: UIViewController {
         shareBtn.isEnabled = imagePickerView.image != nil
     }
     
+//    override func viewDidAppear(_ animated: Bool) {
+//        areLabelsHidden(hidden: (imagePickerView.image == nil))
+//    }
+//
     // MARK: Unsubscribing to keybord notifications
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -140,11 +144,19 @@ class MemeMainVC: UIViewController {
       shareBtn.isEnabled = (imagePickerView != nil)
     }
     
+    func areLabelsHidden(hidden: Bool){
+        topText.isHidden = hidden
+        bottomText.isHidden = hidden
+    }
+    
     func initMemeData(){
         if meme != nil{
             imagePickerView.image = meme.originalImage
             bottomText.text = meme.bottomText
             topText.text = meme.topText
+        } else {
+            // MARK: Check if there is an image to show the labels
+            areLabelsHidden(hidden: (imagePickerView.image == nil))
         }
     }
 }
@@ -168,6 +180,9 @@ extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDel
         }
         dismiss(animated: true, completion: nil)
         self.checkShareButtonAvaliable()
+        
+        // MARK: Check if there is an image to show the labels
+        areLabelsHidden(hidden: (imagePickerView.image == nil))
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
