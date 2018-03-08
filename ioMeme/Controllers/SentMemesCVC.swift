@@ -12,12 +12,16 @@ private let reuseIdentifier = "MemeCollectionCell"
 
 class SentMemesCVC: UICollectionViewController, UICollectionViewDelegateFlowLayout {
 
-    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
     var memes = [Meme]()
+    
+    let emptyTablePlaceholder: UIView? = Bundle.main.loadNibNamed("EmptyTablePlaceholder", owner: nil, options: nil)?.first as? UIView
+    
+    @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        reloadTable()
         
         NotificationCenter.default.addObserver(self, selector: #selector(reloadTable), name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
     }
@@ -54,10 +58,15 @@ class SentMemesCVC: UICollectionViewController, UICollectionViewDelegateFlowLayo
         performSegue(withIdentifier: TO_MEME_EDITOR, sender: meme)
     }
     
-    @objc func reloadTable(_ notif: Notification){
+    @objc func reloadTable(){
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
         self.collectionView?.reloadData()
+        if memes.count > 0{
+            self.collectionView?.backgroundView = nil
+        } else {
+            self.collectionView?.backgroundView = emptyTablePlaceholder
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

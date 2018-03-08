@@ -10,6 +10,8 @@ import UIKit
 
 class MemeMainVC: UIViewController {
 
+    // MARK: Setting IBOutlets
+    
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var bottomText: UITextField!
     @IBOutlet weak var topText: UITextField!
@@ -21,6 +23,7 @@ class MemeMainVC: UIViewController {
     
     @IBOutlet weak var shareBtn: UIButton!
     
+    // MARK: Lifecycle methods
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -33,21 +36,25 @@ class MemeMainVC: UIViewController {
         
         initMemeData()
     }
-    
+    // MARK: Subscribing to keybord notifications to scroll the view
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        subscribeToKeyboardNotifications(scrollView: scrollView)
+        subscribeToKeyboardNotifications()
         shareBtn.isEnabled = imagePickerView.image != nil
     }
+    
+    // MARK: Unsubscribing to keybord notifications
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         unsubscribeFromKeyboardNotifications()
     }
     
+    // MARK: Dismiss keyboard when user tap anywhere
     @objc func dismissKeyboard(_ sender: UITapGestureRecognizer) {
         view.endEditing(true)
     }
     
+    // MARK: Setting UIAlertControler with camera souce options
     @IBAction func cameraOptions(_ sender: Any) {
         let controller = UIAlertController(title: "Choose from source", message: nil, preferredStyle: .actionSheet)
         controller.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
@@ -60,7 +67,7 @@ class MemeMainVC: UIViewController {
         self.present(controller, animated: true, completion: nil)
     }
     
-    
+    // MARK: Method that calls ActivityViewController and save image
     @IBAction func shareMeme(_ sender: Any) {
         self.save()
         let controller = UIActivityViewController(activityItems: [meme.memedImage], applicationActivities: nil)
@@ -73,26 +80,35 @@ class MemeMainVC: UIViewController {
         self.present(controller, animated: true, completion: nil)
         
     }
+    
+    
     @IBAction func dismissViewPress(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
     
-    func subscribeToKeyboardNotifications(scrollView: UIScrollView){
+    
+    // MARK: Method that subscribe and unsubscribe to keyboard notifications
+    func subscribeToKeyboardNotifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: .UIKeyboardWillHide, object: nil)
     }
     
+    // MARK: Method that get keyboard height and set contentInset of the scrollview
     @objc func keyboardWillShow(_ notification: Notification){
         var contentInset:UIEdgeInsets = self.scrollView.contentInset
         contentInset.bottom = getKeyboardHeight(notification)
         scrollView.contentInset = contentInset
     }
     
+    // MARK: Method that set the scrollview contentInset to zero
     @objc func keyboardWillHide(_ notification: Notification){
+        print("\n\n\n Vai esconder\n\n\n")
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
     
+    
+    // MARK: Function that crate the meme taking a "screenshot"
     func generateMemedImage() -> UIImage{
         let imageSize = self.imagePickerView.frame.size
       
@@ -110,6 +126,8 @@ class MemeMainVC: UIViewController {
         return UIImage()
     }
     
+    
+    // MARK: Method save the meme in appDelegate
     func save(){
         let memedImage: UIImage = generateMemedImage()
         self.meme = Meme(topText: topText.text!, bottomText: bottomText.text!, originalImage: imagePickerView.image!, memedImage: memedImage)
@@ -131,6 +149,7 @@ class MemeMainVC: UIViewController {
     }
 }
 
+// MARK: Delegate methods
 extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate{
      func pickAnImageFromSource(sourceType: UIImagePickerControllerSourceType) {
         presentImagePickerWith(sourceType: sourceType)

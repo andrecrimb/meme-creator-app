@@ -9,12 +9,14 @@
 import UIKit
 
 class SentMemesTVC: UITableViewController {
-
+    
     var memes = [Meme]()
+    
+    let emptyTablePlaceholder: UIView? = Bundle.main.loadNibNamed("EmptyTablePlaceholder", owner: nil, options: nil)?.first as? UIView
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.clearsSelectionOnViewWillAppear = false
+        self.clearsSelectionOnViewWillAppear = true
         
         reloadTable()
       
@@ -61,6 +63,11 @@ class SentMemesTVC: UITableViewController {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         memes = appDelegate.memes
         self.tableView.reloadData()
+        if memes.count > 0{
+            self.tableView.backgroundView = nil
+        } else {
+            self.tableView.backgroundView = emptyTablePlaceholder
+        }
     }
     
     @IBAction func toMemeEditor(_ sender: Any){
