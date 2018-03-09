@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class fontMeme: UITextField{
+class FontMeme: UITextField{
   
     override func awakeFromNib() {
         super.awakeFromNib()

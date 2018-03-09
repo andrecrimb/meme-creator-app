@@ -45,10 +45,6 @@ class MemeMainVC: UIViewController {
         shareBtn.isEnabled = imagePickerView.image != nil
     }
     
-//    override func viewDidAppear(_ animated: Bool) {
-//        areLabelsHidden(hidden: (imagePickerView.image == nil))
-//    }
-//
     // MARK: Unsubscribing to keybord notifications
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
@@ -60,17 +56,22 @@ class MemeMainVC: UIViewController {
         view.endEditing(true)
     }
     
-    // MARK: Setting UIAlertControler with camera souce options
+    // MARK: Setting UIAlertControler with camera souce options. Disable camera option if camera not available
     @IBAction func cameraOptions(_ sender: Any) {
-        let controller = UIAlertController(title: "Choose from source", message: nil, preferredStyle: .actionSheet)
-        controller.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
-            self.pickAnImageFromSource(sourceType: .camera)
-        }))
-        controller.addAction(UIAlertAction(title: "Album", style: .default, handler: { (UIAlertAction) in
+        if UIImagePickerController.isSourceTypeAvailable(.camera){
+            let controller = UIAlertController(title: "Choose from source", message: nil, preferredStyle: .actionSheet)
+            controller.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
+                self.pickAnImageFromSource(sourceType: .camera)
+            }))
+            
+            controller.addAction(UIAlertAction(title: "Album", style: .default, handler: { (UIAlertAction) in
+                self.pickAnImageFromSource(sourceType: .savedPhotosAlbum)
+            }))
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            self.present(controller, animated: true, completion: nil)
+        } else {
             self.pickAnImageFromSource(sourceType: .savedPhotosAlbum)
-        }))
-        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(controller, animated: true, completion: nil)
+        }
     }
     
     // MARK: Method that calls ActivityViewController and save image

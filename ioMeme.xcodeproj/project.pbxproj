@@ -23,7 +23,7 @@
 		548881C620470F6500DD0E15 /* MemeTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548881C520470F6500DD0E15 /* MemeTableCell.swift */; };
 		548881CA20470FB400DD0E15 /* MemeCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548881C920470FB400DD0E15 /* MemeCollectionCell.swift */; };
 		548881CC2047A1ED00DD0E15 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548881CB2047A1ED00DD0E15 /* Constants.swift */; };
-		54DE75DA2018D5AA003567AA /* fontMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE75D92018D5AA003567AA /* fontMeme.swift */; };
+		54DE75DA2018D5AA003567AA /* FontMeme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE75D92018D5AA003567AA /* FontMeme.swift */; };
 		54DE75DD201A29C3003567AA /* ViewKeyboardHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE75DC201A29C3003567AA /* ViewKeyboardHandler.swift */; };
 		54DE75E0201B7C8F003567AA /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54DE75DF201B7C8F003567AA /* TextFieldDelegate.swift */; };
 		54FD1E5D203E429000AB5A09 /* SentMemesCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FD1E5C203E429000AB5A09 /* SentMemesCVC.swift */; };
@@ -48,7 +48,7 @@
 		548881C520470F6500DD0E15 /* MemeTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeTableCell.swift; sourceTree = "<group>"; };
 		548881C920470FB400DD0E15 /* MemeCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeCollectionCell.swift; sourceTree = "<group>"; };
 		548881CB2047A1ED00DD0E15 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		54DE75D92018D5AA003567AA /* fontMeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = fontMeme.swift; sourceTree = "<group>"; };
+		54DE75D92018D5AA003567AA /* FontMeme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontMeme.swift; sourceTree = "<group>"; };
 		54DE75DC201A29C3003567AA /* ViewKeyboardHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewKeyboardHandler.swift; sourceTree = "<group>"; };
 		54DE75DF201B7C8F003567AA /* TextFieldDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
 		54FD1E5C203E429000AB5A09 /* SentMemesCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SentMemesCVC.swift; sourceTree = "<group>"; };
@@ -164,7 +164,7 @@
 		54FCE4312016375E0018A8F1 /* Styles */ = {
 			isa = PBXGroup;
 			children = (
-				54DE75D92018D5AA003567AA /* fontMeme.swift */,
+				54DE75D92018D5AA003567AA /* FontMeme.swift */,
 				5450C1E8203B958F008C519C /* RoundedImage.swift */,
 				5416995E203EDE0600881401 /* ShadowView.swift */,
 				54169964203F279B00881401 /* BlurView.swift */,
@@ -249,7 +249,7 @@
 				54DE75DD201A29C3003567AA /* ViewKeyboardHandler.swift in Sources */,
 				5450C1E9203B958F008C519C /* RoundedImage.swift in Sources */,
 				54FD1E5D203E429000AB5A09 /* SentMemesCVC.swift in Sources */,
-				54DE75DA2018D5AA003567AA /* fontMeme.swift in Sources */,
+				54DE75DA2018D5AA003567AA /* FontMeme.swift in Sources */,
 				54169965203F279B00881401 /* BlurView.swift in Sources */,
 				548881CC2047A1ED00DD0E15 /* Constants.swift in Sources */,
 				5416995F203EDE0600881401 /* ShadowView.swift in Sources */,
