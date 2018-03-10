@@ -1,16 +1,15 @@
 //
-//  fontMeme.swift
+//  FontMeme.swift
 //  ioMeme
 //
-//  Created by Andre Rosa on 24/01/2018.
+//  Created by Andre Rosa on 10/03/2018.
 //  Copyright © 2018 Andre Rosa. All rights reserved.
 //
-import Foundation
+
 import UIKit
 
 @IBDesignable
-class TextFieldMeme: UITextField{
-  
+class FontMeme: UITextField {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupView()
@@ -18,11 +17,6 @@ class TextFieldMeme: UITextField{
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
-        setupView()
-    }
-    
-    override func updateConstraints() {
-        super.updateConstraints()
         setupView()
     }
     
@@ -38,5 +32,5 @@ class TextFieldMeme: UITextField{
         self.textAlignment = .center
         self.textColor = UIColor.white
     }
-    
+
 }
