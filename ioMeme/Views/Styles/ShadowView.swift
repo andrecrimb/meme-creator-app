@@ -28,11 +28,6 @@ class ShadowView: UIView {
         setupView(active: ShadowView)
     }
     
-    override func updateConstraints() {
-        super.updateConstraints()
-        setupView(active: ShadowView)
-    }
-    
     func setupView(active: Bool){
         if active{
             self.layer.cornerRadius = 16
@@ -43,5 +38,10 @@ class ShadowView: UIView {
             self.layer.masksToBounds =  false
             layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: 16).cgPath
         }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        setupView(active: ShadowView)
     }
 }
