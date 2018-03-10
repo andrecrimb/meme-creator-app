@@ -14,7 +14,7 @@ extension UIViewController{
     func getKeyboardHeight(_ notification: Notification) -> CGFloat{
         let userInfo = notification.userInfo
         let keyboardSize = userInfo![UIKeyboardFrameEndUserInfoKey] as! NSValue
-        return keyboardSize.cgRectValue.height
+        return keyboardSize.cgRectValue.height + 16
     }
     
     func unsubscribeFromKeyboardNotifications(){

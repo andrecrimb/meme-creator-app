@@ -90,15 +90,15 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="Xvl-WM-x24">
                                                     <rect key="frame" x="111" y="31.5" width="214" height="57"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="natural" lineBreakMode="middleTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oeD-DD-kBD" customClass="LabelMeme" customModule="ioMeme" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="214" height="20.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loren ipsum loren ipsum" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOMBOTTOMBOTTOMBOTTOMBOTTOMBOTTOMBOTTOM" textAlignment="natural" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sYu-5q-GyC" customClass="LabelMeme" customModule="ioMeme" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="36.5" width="214" height="20.5"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -179,13 +179,34 @@
                                                         <userDefinedRuntimeAttribute type="boolean" keyPath="Rounded" value="YES"/>
                                                     </userDefinedRuntimeAttributes>
                                                 </imageView>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="tdn-3t-vvJ">
+                                                    <rect key="frame" x="8" y="8" width="89" height="89"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TOP" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3kT-xj-y0u" customClass="LabelMeme" customModule="ioMeme" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="89" height="44.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BOTTOM" textAlignment="center" lineBreakMode="middleTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3eR-EF-ybm" customClass="LabelMeme" customModule="ioMeme" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="44.5" width="89" height="44.5"/>
+                                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="16"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
                                                 <constraint firstItem="57F-UX-CR4" firstAttribute="leading" secondItem="MpF-23-VmS" secondAttribute="leading" id="2IT-3c-yP0"/>
+                                                <constraint firstAttribute="trailing" secondItem="tdn-3t-vvJ" secondAttribute="trailing" constant="8" id="8x3-Py-HML"/>
+                                                <constraint firstAttribute="bottom" secondItem="tdn-3t-vvJ" secondAttribute="bottom" constant="8" id="9Ib-yv-MtD"/>
+                                                <constraint firstItem="tdn-3t-vvJ" firstAttribute="top" secondItem="MpF-23-VmS" secondAttribute="top" constant="8" id="TfO-gt-gRo"/>
                                                 <constraint firstItem="57F-UX-CR4" firstAttribute="top" secondItem="MpF-23-VmS" secondAttribute="top" id="Tn5-7p-fNJ"/>
                                                 <constraint firstAttribute="bottom" secondItem="57F-UX-CR4" secondAttribute="bottom" id="pZ9-aQ-tup"/>
                                                 <constraint firstAttribute="trailing" secondItem="57F-UX-CR4" secondAttribute="trailing" id="rvg-NM-HVt"/>
+                                                <constraint firstItem="tdn-3t-vvJ" firstAttribute="leading" secondItem="MpF-23-VmS" secondAttribute="leading" constant="8" id="uWR-Z5-x4t"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
                                                 <userDefinedRuntimeAttribute type="boolean" keyPath="ShadowView" value="YES"/>
@@ -201,7 +222,9 @@
                                 </constraints>
                                 <size key="customSize" width="105" height="105"/>
                                 <connections>
+                                    <outlet property="bottomLabel" destination="3eR-EF-ybm" id="k8r-4N-oNv"/>
                                     <outlet property="memeImage" destination="57F-UX-CR4" id="BVf-g1-FS8"/>
+                                    <outlet property="topLabel" destination="3kT-xj-y0u" id="Ysd-hD-md6"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -276,7 +299,7 @@
                                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="8b5-Se-ecd">
                                                                                 <rect key="frame" x="16" y="25" width="333" height="452"/>
                                                                                 <subviews>
-                                                                                    <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-OY-41q" customClass="FontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                                    <textField opaque="NO" tag="1000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7Ub-OY-41q" customClass="TextFieldMeme" customModule="ioMeme" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="0.0" width="333" height="48"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
@@ -285,7 +308,7 @@
                                                                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="30"/>
                                                                                         </variation>
                                                                                     </textField>
-                                                                                    <textField opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-Mg-foo" customClass="FontMeme" customModule="ioMeme" customModuleProvider="target">
+                                                                                    <textField opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Lh0-Mg-foo" customClass="TextFieldMeme" customModule="ioMeme" customModuleProvider="target">
                                                                                         <rect key="frame" x="0.0" y="404" width="333" height="48"/>
                                                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                                         <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="40"/>
@@ -479,9 +502,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="eHu-L0-8KW"/>
                     </view>
-                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="4hW-mk-H9F"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="never" id="4hW-mk-H9F">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="vfC-re-aLO">
+                            <connections>
+                                <action selector="toMemeEdit:" destination="8rH-dU-U0i" id="0jb-oP-PnP"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="imagePickerView" destination="bFW-r6-Oy9" id="fed-g0-DOz"/>
+                        <segue destination="TCh-Do-cRs" kind="presentation" identifier="ToMemeEditor" id="kPY-Cz-M1C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qrc-HT-Eao" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,7 +586,7 @@
         <image name="table_icon" width="27" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Iav-EI-H1t"/>
-        <segue reference="ukE-rP-pMa"/>
+        <segue reference="1wh-9t-pZn"/>
+        <segue reference="6qR-o2-Uoi"/>
     </inferredMetricsTieBreakers>
 </document>

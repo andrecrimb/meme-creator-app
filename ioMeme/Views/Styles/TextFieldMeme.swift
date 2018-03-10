@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 @IBDesignable
-class FontMeme: UITextField{
+class TextFieldMeme: UITextField{
   
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -18,6 +18,11 @@ class FontMeme: UITextField{
     
     override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
+        setupView()
+    }
+    
+    override func updateConstraints() {
+        super.updateConstraints()
         setupView()
     }
     
@@ -31,7 +36,6 @@ class FontMeme: UITextField{
         
         self.defaultTextAttributes = memeTextAttributes
         self.textAlignment = .center
-        self.textColor = UIColor.white
         self.textColor = UIColor.white
     }
     

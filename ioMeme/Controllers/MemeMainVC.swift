@@ -35,8 +35,9 @@ class MemeMainVC: UIViewController {
         bottomText.delegate = textFieldDelegate
         topText.delegate = textFieldDelegate
         
-        areLabelsHidden(hidden: (imagePickerView.image == nil))
         
+        
+        initMemeData()
     }
     // MARK: Subscribing to keybord notifications to scroll the view
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +82,7 @@ class MemeMainVC: UIViewController {
         controller.completionWithItemsHandler = { (activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, error: Error?) -> Void in
             if completed {
                 NotificationCenter.default.post(name: NSNotification.Name(rawValue: NOTIF_RELOAD_TABLE), object: nil)
-                self.dismiss(animated: true, completion: nil)
+                self.dismissView()
             }
         }
         self.present(controller, animated: true, completion: nil)
@@ -109,7 +110,6 @@ class MemeMainVC: UIViewController {
     
     // MARK: Method that set the scrollview contentInset to zero
     @objc func keyboardWillHide(_ notification: Notification){
-        print("\n\n\n Vai esconder\n\n\n")
         let contentInset:UIEdgeInsets = UIEdgeInsets.zero
         scrollView.contentInset = contentInset
     }
@@ -154,6 +154,19 @@ class MemeMainVC: UIViewController {
         topText.isHidden = hidden
         bottomText.isHidden = hidden
     }
+    
+    func dismissView(){
+        self.dismiss(animated: false, completion: nil)
+    }
+    
+    func initMemeData(){
+        areLabelsHidden(hidden: (meme == nil))
+        if meme != nil{
+            imagePickerView.image = meme.originalImage
+            bottomText.text = meme.bottomText
+            topText.text = meme.topText
+        }
+    }
 }
 
 // MARK: Delegate methods
@@ -181,6 +194,6 @@ extension MemeMainVC: UIImagePickerControllerDelegate, UINavigationControllerDel
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
+        dismissView()
     }
 }

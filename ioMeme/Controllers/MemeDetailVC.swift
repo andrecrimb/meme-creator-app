@@ -19,4 +19,18 @@ class MemeDetailVC: UIViewController {
         super.viewDidLoad()
         imagePickerView.image = meme.memedImage
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == TO_MEME_EDITOR{
+            if let memeEditor = segue.destination as? MemeMainVC{
+                if let meme = sender as? Meme{
+                    memeEditor.meme = meme
+                }
+            }
+        }
+    }
+    
+    @IBAction func toMemeEdit(_ sender: Any) {
+        performSegue(withIdentifier: TO_MEME_EDITOR, sender: meme)
+    }
 }
