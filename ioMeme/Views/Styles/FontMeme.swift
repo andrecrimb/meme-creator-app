@@ -28,9 +28,9 @@ class FontMeme: UITextField {
             NSAttributedStringKey.strokeWidth.rawValue: -3.4
         ]
         
-        self.defaultTextAttributes = memeTextAttributes
-        self.textAlignment = .center
-        self.textColor = UIColor.white
+        defaultTextAttributes = memeTextAttributes
+        textAlignment = .center
+        textColor = UIColor.white
     }
 
 }

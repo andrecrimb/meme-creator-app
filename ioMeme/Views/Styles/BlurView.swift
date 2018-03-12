@@ -53,7 +53,7 @@ class BlurView: UIView {
             let blurEffectView = UIVisualEffectView(effect: blurEffect)
             blurEffectView.frame = self.layer.bounds
             blurEffectView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            self.insertSubview(blurEffectView, at: 0)
+            insertSubview(blurEffectView, at: 0)
         }
     }
     

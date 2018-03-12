@@ -21,12 +21,6 @@ extension UIView {
             setNeedsLayout()
         }
     }
-
-    open override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     open override func prepareForInterfaceBuilder() {
         super.prepareForInterfaceBuilder()
     }

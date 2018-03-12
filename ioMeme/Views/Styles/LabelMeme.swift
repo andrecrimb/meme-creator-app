@@ -33,7 +33,7 @@ class LabelMeme: UILabel {
             NSAttributedStringKey.strokeWidth : -3.0,
             ]
     
-        self.lineBreakMode = .byTruncatingMiddle
+        lineBreakMode = .byTruncatingMiddle
         if let text = self.text{
             self.attributedText = NSAttributedString(string: text, attributes: strokeTextAttributes)
         }

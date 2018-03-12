@@ -29,11 +29,7 @@ class RoundedImage: UIImageView {
     }
     
     func setupView(active: Bool){
-        if active{
-            self.layer.cornerRadius = 16
-        } else {
-            self.layer.cornerRadius = 0
-        }
+        layer.cornerRadius = active ? 16 : 0
     }
     
 }
