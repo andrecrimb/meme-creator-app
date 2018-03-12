@@ -6,6 +6,9 @@ ioMeme is a meme-generating app that enables a user to attach a caption to a pic
 After adding text to an image chosen from the Photo Album or Camera, the user can share it with friends. 
 MemeMe also temporarily stores sent memes which users can browse in a table or a grid.
 
+![MemeTable](https://raw.githubusercontent.com/andrerosa189/ioMeme/master/screenshot/meme_main.png)
+![MemeMainVC](https://raw.githubusercontent.com/andrerosa189/ioMeme/master/screenshot/meme_edit.png)
+
 ## Implementation
 
 The app has three view controller scenes:
